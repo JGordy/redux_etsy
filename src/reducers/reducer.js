@@ -10,7 +10,6 @@ const initialState = {
   products: products,
   filter: 'all'
 }
-console.log(initialState);
 // Finish writing the reducer for the `FILTER_PRODUCTS` action
 // Provide the reducer function delration with the necessary parameters
 // Give the `state` parameter a default value of `initialState`

@@ -6,13 +6,18 @@ import Product from "../components/Product";
 class ProductList extends Component {
 
     render() {
-        const {products} = this.props;
+        const productList = this.props;
+        let productArray = productList.products.map((product, index) => {
+          return (
+            <Product key={index} product={product}/>
+          );
+        })
         // Create a dynamically populated list of `<Product />` components
         // Each `<Product />` component should have a single object from the `products` state property (array)
         // applied to the component as a `product` property
         return (
             <ul className="ProductList">
-
+              {productArray}
             </ul>
         );
     }
@@ -26,12 +31,15 @@ class ProductList extends Component {
 const mapStateToProps = function(state) {
     let products;
     // complete the `if else` statement including conditions and `products` value
-    if ('underTwenty') {
-      console.log("products1: ",products);
-    } else if ('overTwenty') {
-      console.log("products2: ",products);
+    if (state.filter === 'underTwenty') {
+      products = state.products.filter(product => Number(product.price) <= 20)
+      console.log("underTwenty: ", products);
+    } else if (state.filter === 'overTwenty') {
+      products = state.products.filter(product => Number(product.price) >= 20)
+      console.log("overTwenty: ", products);
     } else {
       products = state.products
+      console.log("products: ", products);
     }
 
     return {products: products}

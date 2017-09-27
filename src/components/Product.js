@@ -6,7 +6,7 @@ class Product extends Component {
 
         return (
             <li>
-              <img src={product.image}></img>
+              <img src={product.image} alt=''></img>
               <h3>{product.title}</h3>
               <h4>{product.price}</h4>
             </li>
