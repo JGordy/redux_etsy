@@ -5,8 +5,9 @@ import products from './data/products';
 // Define initial state object
 // Make sure the state object contains the `products` array imported in this file
 // The state will also require a property for the current state of filterable data
+console.log("this.props: ", this.props, "this.state: " this.state);
 const initialState = {
-
+  products =
 }
 
 // Finish writing the reducer for the `FILTER_PRODUCTS` action
@@ -18,6 +19,16 @@ const reducer = function(state = initialState, action) {
     // Use the `update` operator provided by `immutability-helper`
     // to update the the state property describing current state of filterable data
     // provided by the `action.payload`
+    switch (action.type) {
+      case FILTER_PRODUCTS:
+        return update(state, {
+          filter: {
+            $set: action.payload
+          }
+        });
+      default:
+        return state
+    }
 }
 
 export default reducer;
